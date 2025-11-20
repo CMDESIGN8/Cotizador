@@ -1,4 +1,4 @@
-const API_BASE = '/api';
+const API_BASE = 'https://cotizadorback.onrender.com';
 
 // Función para manejar errores de fetch
 const handleResponse = async (response) => {
@@ -978,5 +978,6 @@ export const clientsService = {
     return handleResponse(response);
   }
 };
+
 
 export default apiService;
