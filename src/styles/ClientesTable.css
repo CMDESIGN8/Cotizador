@@ -1,0 +1,208 @@
+/* CONTENEDOR PRINCIPAL AISLADO */
+.acciones-cliente-container {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 4px;
+  isolation: isolate;
+}
+
+/* ESTILOS BASE PARA BOTONES - NOMBRES ESPECÍFICOS */
+.acciones-cliente-container .accion-btn {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  /* Reset de estilos globales */
+  margin: 0;
+  line-height: 1;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+/* Reset específico para evitar conflictos */
+.acciones-cliente-container .accion-btn:focus {
+  outline: 2px solid rgba(255,255,255,0.5);
+  outline-offset: 2px;
+}
+
+.acciones-cliente-container .accion-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.acciones-cliente-container .accion-btn:hover::before {
+  left: 100%;
+}
+
+.acciones-cliente-container .accion-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.acciones-cliente-container .accion-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* BOTÓN VER COTIZACIONES */
+.acciones-cliente-container .accion-btn-info {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+}
+
+.acciones-cliente-container .accion-btn-info:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #2471a3 100%);
+}
+
+/* BOTÓN EDITAR */
+.acciones-cliente-container .accion-btn-warning {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  color: white;
+}
+
+.acciones-cliente-container .accion-btn-warning:hover {
+  background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+}
+
+/* BOTÓN DESACTIVAR */
+.acciones-cliente-container .accion-btn-danger {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+}
+
+.acciones-cliente-container .accion-btn-danger:hover {
+  background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+}
+
+/* EFECTO DE PULSO */
+.acciones-cliente-container .accion-btn:hover {
+  animation: accionPulse 0.6s ease-in-out;
+}
+
+@keyframes accionPulse {
+  0% {
+    transform: translateY(-2px) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.05);
+  }
+  100% {
+    transform: translateY(-2px) scale(1);
+  }
+}
+
+/* TOOLTIPS AISLADOS */
+.acciones-cliente-container .accion-btn {
+  position: relative;
+}
+
+.acciones-cliente-container .accion-btn::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 1000;
+  font-family: inherit;
+  font-weight: normal;
+}
+
+.acciones-cliente-container .accion-btn::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% - 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.acciones-cliente-container .accion-btn:hover::after,
+.acciones-cliente-container .accion-btn:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ESTADO INACTIVO */
+.acciones-cliente-container .accion-btn:disabled {
+  background: #bdc3c7 !important;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.acciones-cliente-container .accion-btn:disabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+.acciones-cliente-container .accion-btn:disabled::before {
+  display: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .acciones-cliente-container {
+    gap: 4px;
+  }
+  
+  .acciones-cliente-container .accion-btn {
+    padding: 8px 10px;
+    min-width: 40px;
+    font-size: 13px;
+  }
+}
+
+/* ANIMACIÓN DE ENTRADA */
+.acciones-cliente-container .accion-btn {
+  animation: accionSlideIn 0.3s ease-out;
+}
+
+@keyframes accionSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.btn {
+    color:#2471a3;
+}

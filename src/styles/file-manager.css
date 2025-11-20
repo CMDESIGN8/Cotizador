@@ -1,0 +1,129 @@
+/* ------------------------------------------- */
+/* styles/file-manager.css                     */
+/* Estilos para el FileManagerOperacion.jsx    */
+/* ------------------------------------------- */
+
+/* Variables de color (asumiendo colores primarios) */
+:root {
+    --color-primario: #3b82f6; /* Azul */
+    --color-secundario: #10b981; /* Verde */
+    --color-fondo-claro: #f4f6f9;
+    --color-borde: #e2e8f0;
+}
+
+/* --- 1. Contenedor General y Sección de Subida --- */
+.file-manager-panel {
+    font-family: Arial, sans-serif;
+    padding: 0; /* Ya tiene padding en el modalBodyStyles */
+    background-color: #fff;
+}
+
+.file-upload-box {
+    padding: 15px 20px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    margin-bottom: 25px;
+    background-color: var(--color-fondo-claro);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.file-upload-box h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.file-upload-box button {
+    background-color: var(--color-primario);
+    transition: background-color 0.2s;
+}
+
+.file-upload-box button:hover:not(:disabled) {
+    background-color: #2563eb;
+}
+
+/* --- 2. Listado de Archivos (El Navegador) --- */
+
+.file-manager-panel h5 {
+    font-size: 1.1em;
+    color: var(--color-primario);
+    border-bottom: 2px solid var(--color-primario);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.file-manager-panel h5::before {
+    content: "📁"; /* Ícono de Carpeta */
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+/* Estilo para cada archivo (el 'li') */
+.file-manager-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.file-manager-panel li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--color-fondo-claro);
+    transition: background-color 0.1s;
+    border-radius: 4px;
+}
+
+.file-manager-panel li:hover {
+    background-color: #f0f4f8; /* Un poco de highlight al pasar el mouse */
+}
+
+/* Icono de archivo y nombre */
+.file-manager-panel li span:first-child::before {
+    content: "📄"; /* Ícono genérico de archivo */
+    margin-right: 8px;
+}
+
+/* Info secundaria del archivo */
+.file-manager-panel li span span {
+    font-size: 0.85em;
+    color: #64748b; /* Gris oscuro para detalles */
+}
+
+/* Botón de Descarga */
+.file-manager-panel li button {
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: var(--color-secundario);
+    transition: background-color 0.2s;
+    border-radius: 4px;
+}
+
+.file-manager-panel li button:hover {
+    background-color: #059669;
+}
+
+/* Estilo para el mensaje de carpeta vacía */
+.file-manager-panel p {
+    font-style: italic;
+    color: #888;
+    margin-left: 20px;
+}
+
+/* Mensaje de Atención/Error */
+.file-manager-panel .file-manager-panel div[style*="#fffbe6"] {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-left: 5px solid #ffe58f;
+    background-color: #fffbe6 !important;
+    border: none !important;
+    border-radius: 4px;
+    color: #78350f;
+    font-weight: 500;
+}

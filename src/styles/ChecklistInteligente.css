@@ -1,0 +1,310 @@
+/* styles/ChecklistInteligente.css */
+.checklist-inteligente {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.checklist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.checklist-header h3 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.progreso-checklist {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 200px;
+}
+
+.barra-progreso {
+  flex: 1;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progreso-llenado {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #34d399);
+  transition: width 0.5s ease;
+  border-radius: 4px;
+}
+
+.progreso-checklist span {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.9rem;
+  min-width: 60px;
+  text-align: right;
+}
+
+.siguiente-tarea-critica {
+  margin-bottom: 1.5rem;
+}
+
+.alerta-siguiente {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border: 2px solid #f59e0b;
+  border-radius: 10px;
+  animation: pulse-gentle 2s infinite;
+}
+
+.alerta-siguiente .icono {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.alerta-siguiente .contenido {
+  flex: 1;
+}
+
+.alerta-siguiente .contenido strong {
+  color: #92400e;
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.alerta-siguiente .contenido p {
+  margin: 0;
+  color: #78350f;
+  font-weight: 500;
+}
+
+.btn-completar-tarea {
+  background: #f59e0b;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-completar-tarea:hover {
+  background: #d97706;
+  transform: translateY(-1px);
+}
+
+.lista-tareas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tarea-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tarea-item:hover {
+  background: white;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tarea-item.completada {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  opacity: 0.8;
+}
+
+.tarea-item.critica {
+  border-left: 4px solid #dc2626;
+  background: #fef2f2;
+}
+
+.tarea-item.critica:hover {
+  background: #fecaca;
+}
+
+.tarea-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tarea-checkbox input {
+  display: none;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tarea-checkbox input:checked + .checkmark {
+  background: #10b981;
+  border-color: #10b981;
+}
+
+.tarea-checkbox input:checked + .checkmark::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.tarea-contenido {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tarea-descripcion {
+  color: #374151;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.tarea-item.completada .tarea-descripcion {
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+.badge-critica {
+  background: #dc2626;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.icono-alerta {
+  font-size: 1.25rem;
+  animation: bounce 2s infinite;
+}
+
+.checklist-completado {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border: 2px solid #bbf7d0;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+}
+
+.celebracion {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: celebrate 1s ease-in-out;
+}
+
+.checklist-completado h4 {
+  margin: 0 0 0.5rem 0;
+  color: #166534;
+  font-size: 1.5rem;
+}
+
+.checklist-completado p {
+  margin: 0;
+  color: #15803d;
+  font-size: 1rem;
+}
+
+/* Animaciones */
+@keyframes pulse-gentle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes celebrate {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .checklist-inteligente {
+    padding: 1rem;
+  }
+
+  .checklist-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .progreso-checklist {
+    width: 100%;
+  }
+
+  .alerta-siguiente {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .btn-completar-tarea {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .tarea-item {
+    padding: 0.75rem;
+  }
+
+  .tarea-contenido {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tarea-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .tarea-checkbox {
+    align-self: flex-start;
+  }
+}
